@@ -11,5 +11,5 @@ main = mainWidget $ do
     numberOfTimesClicked <- count clickEvent
     el "p" $ do
       text "Clicked: " 
-      dynText =<< mapDyn show numberOfTimesClicked
+      display numberOfTimesClicked
       text " times."
