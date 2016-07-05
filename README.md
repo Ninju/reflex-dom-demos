@@ -1,6 +1,6 @@
 # Reflex-DOM demos
 
-A collection of small demos and examples of building basic wigets using [Reflex](https://github.com/reflex-frp/reflex) and [Reflex-DOM](https://github.com/reflex-frp/reflex-dom).
+A collection of small demos and examples of building basic widgets using [Reflex](https://github.com/reflex-frp/reflex) and [Reflex-DOM](https://github.com/reflex-frp/reflex-dom).
 
 [Reflex](https://github.com/reflex-frp/reflex) is a fully-deterministic, higher-order Functional Reactive Programming (FRP) interface and an engine that efficiently implements that interface.
 
