@@ -1,0 +1,32 @@
+h1,h2,h3,h4,h5,h6,header,p,div,ul { margin-bottom: 1.5rem; }
+
+body { background-color: rgba(59, 55, 74, 1.0); color: white; font-family: sans-serif; }
+
+header { font-family: Georgia, serif; font-weight: normal; }
+header h1 { font-size: 50px; font-weight: 500; margin: 0 0 0 0; }
+
+ul { list-style: none; }
+ul li { padding: 0 0 0 0; color: rgba(164, 155, 205, 1.0); margin-bottom: 1.5rem; }
+
+#page-wrap {
+  height: 180px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+@media(max-height: 400px) {
+  #page-wrap {
+    position: static;
+  }
+}
+
+@media(max-width: 600px) {
+  #page-wrap {
+    width: 360px;
+  }
+}
