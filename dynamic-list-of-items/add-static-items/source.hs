@@ -1,7 +1,6 @@
 {-# LANGUAGE RecursiveDo, FlexibleContexts #-}
 import Reflex
 import Reflex.Dom
-import Control.Monad
 import qualified Data.Map as Map
 
 renderStaticListOfItems :: MonadWidget t m => [String] -> m ()
