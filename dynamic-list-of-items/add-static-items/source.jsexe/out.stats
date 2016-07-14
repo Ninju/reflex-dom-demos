@@ -1,19 +1,19 @@
 code size summary per package:
 
 base:                    278900
-conta_5w3UY4chXx62LVUOUrXeRm:91017
+conta_5w3UY4chXx62LVUOUrXeRm:94789
 depen_5vw10fkSDDD0LdF4Qk8khv:2833
 depen_HCFzp6ZGqMz1lvJkHhl9BD:47628
 excep_GsT9breZyJSLZ8kkCjLGTR:4658
-ghc-prim:                15619
+ghc-prim:                16645
 ghcjs_B7KLFJ07Vte3zPHAgRIBTb:11013
 ghcjs_D7BYGeMTlMGF2My8KZzKUS:160417
 ghcjs_Kc7TQ2cEDg1F5e5cgY2Vuk:9744
 integer-gmp:             5443
 lens_8q4j85Kn2si1vya922P0ln:454
-main:                    28656
-refle_BP42iAL8rA7IBOuWCaV0zs:402593
-refle_IbNW0IEhD2N2cZrEG6FTBQ:430103
+main:                    28766
+refle_BP42iAL8rA7IBOuWCaV0zs:403033
+refle_Ezmh8J8zddT8PJFP8lPNqy:436896
 reftf_JOU40Nd0lxyACBtr3v80Qj:1202
 text_1ffW5NTi2SPHBcBuYSkgjk:19877
 these_6AzwGhJzfucJgGlyPQnsSR:834
@@ -76,8 +76,8 @@ base
 
 conta_5w3UY4chXx62LVUOUrXeRm
     Data.IntMap.Base:                   11332
-    Data.Map.Base:                      26759
-    Data.Set.Base:                      52926
+    Data.Map.Base:                      30521
+    Data.Set.Base:                      52936
 
 depen_5vw10fkSDDD0LdF4Qk8khv
     Data.Dependent.Sum:                 649
@@ -91,8 +91,8 @@ excep_GsT9breZyJSLZ8kkCjLGTR
     Control.Monad.Exception:            4658
 
 ghc-prim
-    GHC.CString:                        1876
-    GHC.Classes:                        11171
+    GHC.CString:                        1880
+    GHC.Classes:                        12193
     GHC.IntWord64:                      146
     GHC.Tuple:                          1098
     GHC.Types:                          1328
@@ -125,20 +125,20 @@ lens_8q4j85Kn2si1vya922P0ln
     Control.Lens.Setter:                454
 
 main
-    Main:                               28656
+    Main:                               28766
 
 refle_BP42iAL8rA7IBOuWCaV0zs
     Data.Functor.Misc:                  3841
-    Reflex.Class:                       20933
-    Reflex.Dynamic:                     15787
+    Reflex.Class:                       21132
+    Reflex.Dynamic:                     15990
     Reflex.Host.Class:                  2209
-    Reflex.Spider.Internal:             359823
+    Reflex.Spider.Internal:             359861
 
-refle_IbNW0IEhD2N2cZrEG6FTBQ
-    Reflex.Dom.Class:                   17400
-    Reflex.Dom.Internal:                115117
-    Reflex.Dom.Widget.Basic:            271111
-    Reflex.Dom.Widget.Input:            26475
+refle_Ezmh8J8zddT8PJFP8lPNqy
+    Reflex.Dom.Class:                   18073
+    Reflex.Dom.Internal:                120563
+    Reflex.Dom.Widget.Basic:            271740
+    Reflex.Dom.Widget.Input:            26520
 
 reftf_JOU40Nd0lxyACBtr3v80Qj
     Control.Monad.Ref:                  1202
@@ -159,5 +159,5 @@ trans_KzbnBSIEqPI2eU1Inn4mzm
 
 
 
-packed metadata: 315965
+packed metadata: 319331
 
