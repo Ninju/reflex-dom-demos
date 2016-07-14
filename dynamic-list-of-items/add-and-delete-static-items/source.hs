@@ -16,9 +16,9 @@ initialTasks = foldl (\curMap id -> Map.insert id ("Item #" ++ show id) curMap) 
 
 main = mainWidget app
 
-updateWithMap alterations init = Map.foldlWithKey applyUserOperation init alterations
-                                 where
-                                 applyUserOperation m k op = Map.alter (applyUserOp op) k m
+updateWithMap = flip (Map.foldlWithKey applyUserOperation)
+                where
+                applyUserOperation accMap key op = Map.alter (applyUserOp op) key accMap
 
 app = do
   rec userEvents   <- renderApp tasks

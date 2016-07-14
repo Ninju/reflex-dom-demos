@@ -1,6 +1,6 @@
 code size summary per package:
 
-base:                    291833
+base:                    291934
 conta_5w3UY4chXx62LVUOUrXeRm:202680
 depen_5vw10fkSDDD0LdF4Qk8khv:2833
 depen_HCFzp6ZGqMz1lvJkHhl9BD:47628
@@ -11,8 +11,8 @@ ghcjs_D7BYGeMTlMGF2My8KZzKUS:158027
 ghcjs_Kc7TQ2cEDg1F5e5cgY2Vuk:9744
 integer-gmp:             5745
 lens_8q4j85Kn2si1vya922P0ln:454
-main:                    37531
-refle_BP42iAL8rA7IBOuWCaV0zs:421929
+main:                    37624
+refle_BP42iAL8rA7IBOuWCaV0zs:421933
 refle_Ezmh8J8zddT8PJFP8lPNqy:507469
 reftf_JOU40Nd0lxyACBtr3v80Qj:1202
 text_1ffW5NTi2SPHBcBuYSkgjk:19877
@@ -38,7 +38,7 @@ base
     Foreign.Marshal.Alloc:              375
     Foreign.Marshal.Array:              2038
     Foreign.Storable:                   2680
-    GHC.Base:                           8200
+    GHC.Base:                           8301
     GHC.Conc.Sync:                      7822
     GHC.Enum:                           11755
     GHC.Err:                            218
@@ -126,14 +126,14 @@ lens_8q4j85Kn2si1vya922P0ln
     Control.Lens.Setter:                454
 
 main
-    Main:                               37531
+    Main:                               37624
 
 refle_BP42iAL8rA7IBOuWCaV0zs
     Data.Functor.Misc:                  8383
     Reflex.Class:                       32453
     Reflex.Dynamic:                     18342
     Reflex.Host.Class:                  2209
-    Reflex.Spider.Internal:             360542
+    Reflex.Spider.Internal:             360546
 
 refle_Ezmh8J8zddT8PJFP8lPNqy
     Reflex.Dom.Class:                   18073
@@ -162,5 +162,5 @@ trans_KzbnBSIEqPI2eU1Inn4mzm
 
 
 
-packed metadata: 345907
+packed metadata: 345928
 
