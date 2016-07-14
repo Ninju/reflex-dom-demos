@@ -1,7 +1,7 @@
 code size summary per package:
 
-base:                    292556
-conta_5w3UY4chXx62LVUOUrXeRm:204526
+base:                    291833
+conta_5w3UY4chXx62LVUOUrXeRm:202680
 depen_5vw10fkSDDD0LdF4Qk8khv:2833
 depen_HCFzp6ZGqMz1lvJkHhl9BD:47628
 excep_GsT9breZyJSLZ8kkCjLGTR:4658
@@ -11,8 +11,8 @@ ghcjs_D7BYGeMTlMGF2My8KZzKUS:158027
 ghcjs_Kc7TQ2cEDg1F5e5cgY2Vuk:9744
 integer-gmp:             5745
 lens_8q4j85Kn2si1vya922P0ln:454
-main:                    38204
-refle_BP42iAL8rA7IBOuWCaV0zs:421955
+main:                    37531
+refle_BP42iAL8rA7IBOuWCaV0zs:421929
 refle_Ezmh8J8zddT8PJFP8lPNqy:507469
 reftf_JOU40Nd0lxyACBtr3v80Qj:1202
 text_1ffW5NTi2SPHBcBuYSkgjk:19877
@@ -30,7 +30,7 @@ base
     Data.Function:                      86
     Data.Functor.Identity:              224
     Data.Maybe:                         1186
-    Data.Tuple:                         829
+    Data.Tuple:                         334
     Data.Type.Equality:                 287
     Data.Typeable:                      885
     Data.Typeable.Internal:             1418
@@ -38,7 +38,7 @@ base
     Foreign.Marshal.Alloc:              375
     Foreign.Marshal.Array:              2038
     Foreign.Storable:                   2680
-    GHC.Base:                           8428
+    GHC.Base:                           8200
     GHC.Conc.Sync:                      7822
     GHC.Enum:                           11755
     GHC.Err:                            218
@@ -76,7 +76,7 @@ base
 
 conta_5w3UY4chXx62LVUOUrXeRm
     Data.IntMap.Base:                   11332
-    Data.Map.Base:                      128349
+    Data.Map.Base:                      126503
     Data.Map.Strict:                    11915
     Data.Set.Base:                      52930
 
@@ -126,14 +126,14 @@ lens_8q4j85Kn2si1vya922P0ln
     Control.Lens.Setter:                454
 
 main
-    Main:                               38204
+    Main:                               37531
 
 refle_BP42iAL8rA7IBOuWCaV0zs
     Data.Functor.Misc:                  8383
     Reflex.Class:                       32453
     Reflex.Dynamic:                     18342
     Reflex.Host.Class:                  2209
-    Reflex.Spider.Internal:             360568
+    Reflex.Spider.Internal:             360542
 
 refle_Ezmh8J8zddT8PJFP8lPNqy
     Reflex.Dom.Class:                   18073
@@ -162,5 +162,5 @@ trans_KzbnBSIEqPI2eU1Inn4mzm
 
 
 
-packed metadata: 346593
+packed metadata: 345907
 

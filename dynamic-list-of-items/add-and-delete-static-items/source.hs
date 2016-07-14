@@ -5,20 +5,20 @@ import qualified Data.Map as Map
 
 type Task = String
 
-data CrudEvent a = Delete | Create a
+data UserEvent a = Delete | Create a
+
+applyUserOp :: UserEvent a -> Maybe a -> Maybe a
+applyUserOp Delete = const Nothing
+applyUserOp (Create a) = const (Just a)
 
 initialTasks :: Map.Map Int Task
 initialTasks = foldl (\curMap id -> Map.insert id ("Item #" ++ show id) curMap) Map.empty [1..5]
 
 main = mainWidget app
 
-updateWithMap alterations init =
-  let updates = Map.toList alterations
-  in
-    foldl (uncurry . applyCrudOperation) init updates
-  where
-  applyCrudOperation m k (Delete)   = Map.updateWithKey (const . const Nothing) k m
-  applyCrudOperation m k (Create a) = Map.alter (const (Just a)) k m
+updateWithMap alterations init = Map.foldlWithKey applyUserOperation init alterations
+                                 where
+                                 applyUserOperation m k op = Map.alter (applyUserOp op) k m
 
 app = do
   rec userEvents   <- renderApp tasks
@@ -30,7 +30,7 @@ app = do
 
   return ()
 
-renderApp :: (Ord k, MonadWidget t m) => Dynamic t (Map.Map k Task) -> m (Event t (Map.Map k (CrudEvent Task)))
+renderApp :: (Ord k, MonadWidget t m) => Dynamic t (Map.Map k Task) -> m (Event t (Map.Map k (UserEvent Task)))
 renderApp dynTasks = do
   el "h1" $ text "Add and delete static items"
   el "ul" $ do
