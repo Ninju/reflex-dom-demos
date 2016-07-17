@@ -11,8 +11,8 @@ ghcjs_D7BYGeMTlMGF2My8KZzKUS:142464
 ghcjs_Kc7TQ2cEDg1F5e5cgY2Vuk:9744
 integer-gmp:             5443
 lens_8q4j85Kn2si1vya922P0ln:454
-main:                    36877
-refle_BP42iAL8rA7IBOuWCaV0zs:404946
+main:                    36558
+refle_BP42iAL8rA7IBOuWCaV0zs:404945
 refle_Ezmh8J8zddT8PJFP8lPNqy:403385
 reftf_JOU40Nd0lxyACBtr3v80Qj:1202
 text_1ffW5NTi2SPHBcBuYSkgjk:19877
@@ -124,14 +124,14 @@ lens_8q4j85Kn2si1vya922P0ln
     Control.Lens.Setter:                454
 
 main
-    Main:                               36877
+    Main:                               36558
 
 refle_BP42iAL8rA7IBOuWCaV0zs
     Data.Functor.Misc:                  3841
     Reflex.Class:                       21975
     Reflex.Dynamic:                     17036
     Reflex.Host.Class:                  2209
-    Reflex.Spider.Internal:             359885
+    Reflex.Spider.Internal:             359884
 
 refle_Ezmh8J8zddT8PJFP8lPNqy
     Reflex.Dom.Class:                   7048
@@ -158,5 +158,5 @@ trans_KzbnBSIEqPI2eU1Inn4mzm
 
 
 
-packed metadata: 314956
+packed metadata: 314930
 

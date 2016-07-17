@@ -6,11 +6,13 @@ import qualified Data.Map as Map
 import GHCJS.DOM.Element
 import Control.Monad.IO.Class
 
+placeholderName = "Click to edit the name"
+
 main = mainWidget app
 
 app = do
   el "h1" $ text "Edit item in place"
-  el "p" $ text "Click on the name to edit it in-place."
+  el "p" $ text "Click on the name or the label to edit the name in-place."
 
   el "div" $ do
     (nameLabel, _) <- elAttr' "label" ("for" =: "name-input") $ el "strong" $ text "Name: "
@@ -23,8 +25,8 @@ app = do
 
         performEvent_ $ fmap (const $ liftIO $ focus $ _textInput_element nameT) inEditingState
 
-        nameTStyle <- dynStyleAttr "display" inEditingState            "none"   ("inline", "none")
-        nameAttrs  <- dynStyleAttr "display" (fmap not inEditingState) "inline" ("inline", "none")
+        nameTStyle <- dynStyleAttr "display" "none"   ("inline", "none") inEditingState
+        nameAttrs  <- dynStyleAttr "display" "inline" ("inline", "none") $ fmap not inEditingState
 
         let defaultNameTAttrs = Map.fromList [("id", "name-input"), ("placeholder", "Enter a name")]
 
@@ -37,12 +39,13 @@ app = do
 
     return ()
 
-dynStyleAttr attrName when initial (truthy, falsey) = do
+
+dynStyleAttr :: (Reflex t, MonadHold t m) => String -> String -> (String, String) -> Event t Bool -> m (Dynamic t (Map.Map String String))
+dynStyleAttr attrName initial (truthy, falsey) when = do
   currentAttr <- holdDyn initial (fmap (\t -> if t then truthy else falsey) when)
   mapDyn (\v -> Map.singleton "style" (attrName ++ ": " ++ v ++ ";")) currentAttr
 
-placeholderName = "Click to edit the name"
-
+combineAttrs :: (Reflex t, MonadHold t m) => Map.Map String String -> Dynamic t (Map.Map String String) -> m (Dynamic t (Map.Map String String))
 combineAttrs defAttrs dynAttrs =
   combineDyn
     (\defArgs extraArgs ->
