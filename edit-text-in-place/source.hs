@@ -1,11 +1,9 @@
 {-# LANGUAGE RecursiveDo #-}
+import           Control.Monad.IO.Class
+import qualified Data.Map as Map
+import qualified GHCJS.DOM.JSFFI.Generated.HTMLInputElement as Input
 import           Reflex
 import           Reflex.Dom
-import           Reflex.Dom.Widget.Basic
-import qualified Data.Map as Map
-import           GHCJS.DOM.Element
-import           Control.Monad.IO.Class
-import qualified GHCJS.DOM.JSFFI.Generated.HTMLInputElement as Input
 
 placeholderName = "Click to edit the name"
 
