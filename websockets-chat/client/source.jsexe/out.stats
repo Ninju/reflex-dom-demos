@@ -2,7 +2,7 @@ code size summary per package:
 
 9GHT37n6OcY72rqgibJ1Bi:  1172
 F3lLww8csW6En7phubNVtA:  2709
-aeson_JfwOc0tatveGJr1ebKU0dG:345174
+aeson_JfwOc0tatveGJr1ebKU0dG:345168
 attop_HIPcrt1bknMHgOEBnvnnBj:120103
 base:                    376680
 bytes_7xzRCqmYKEUD9kT8JNNjd6:69239
@@ -15,11 +15,11 @@ ghcjs_F1mWODwfCMO30MeG1SrT96:178080
 ghcjs_Kc7TQ2cEDg1F5e5cgY2Vuk:10043
 integer-gmp:             30225
 lens_3fKNq6Keq021LVjg8NkKIP:832
-main:                    51348
+main:                    50809
 mtl_JY14bYun6zF5fM4QvBys8Y:1091
 primi_293YT17zdlWL9QJgnLTQSn:2385
 profu_F4EXiBzUR5ODomnJKDne7Y:1717
-refle_AP5ThgsLIQzEcQVSTX7cu8:560684
+refle_AP5ThgsLIQzEcQVSTX7cu8:561754
 refle_EwcELJSNfXz458tkz6MgJ5:406803
 scien_JLbgv5DSrHg1BhuIrFclni:90283
 text_1ffW5NTi2SPHBcBuYSkgjk:34438
@@ -41,7 +41,7 @@ F3lLww8csW6En7phubNVtA
 aeson_JfwOc0tatveGJr1ebKU0dG
     Data.Aeson:                         2882
     Data.Aeson.Encode.ByteString:       45099
-    Data.Aeson.Parser.Internal:         218230
+    Data.Aeson.Parser.Internal:         218224
     Data.Aeson.Types.Class:             1942
     Data.Aeson.Types.Generic:           34514
     Data.Aeson.Types.Instances:         24590
@@ -178,7 +178,7 @@ lens_3fKNq6Keq021LVjg8NkKIP
     Control.Lens.Setter:                458
 
 main
-    Main:                               41461
+    Main:                               40922
     Shared.Types:                       9887
 
 mtl_JY14bYun6zF5fM4QvBys8Y
@@ -197,7 +197,7 @@ refle_AP5ThgsLIQzEcQVSTX7cu8
     Reflex.Dom.WebSocket:               28112
     Reflex.Dom.WebSocket.Foreign:       5956
     Reflex.Dom.Widget.Basic:            344769
-    Reflex.Dom.Widget.Input:            26636
+    Reflex.Dom.Widget.Input:            27706
 
 refle_EwcELJSNfXz458tkz6MgJ5
     Data.Functor.Misc:                  8324
@@ -251,5 +251,5 @@ vecto_FNLwpzrmeRC6Ra1RihE2cq
 
 
 
-packed metadata: 496552
+packed metadata: 496461
 

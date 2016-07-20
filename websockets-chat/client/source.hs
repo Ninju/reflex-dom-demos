@@ -30,10 +30,10 @@ applyEvent (Create msg) map =
 stripUserEvent (Create msg) = msg
 
 buildMessage :: UserEvent String -> UserEvent ChatMessage
-buildMessage (Create msgText) = Create $ ChatMessage { _authorName = "Auto-assigned by server", _messageText = msgText }
+buildMessage (Create msgText) = Create ChatMessage { _authorName = "Auto-assigned by server", _messageText = msgText }
 
 main = mainWidgetWithCss $(embedFile "client/style.css") $ do
-  rec wsocket <- webSocket wsUri $ def & webSocketConfig_send .~ (fmap ((:[]) . LBS.toStrict . encode . stripUserEvent) authoredUserEvents)
+  rec wsocket <- webSocket wsUri $ def & webSocketConfig_send .~ fmap ((:[]) . LBS.toStrict . encode . stripUserEvent) authoredUserEvents
       let decodedMessages = fmap (decode . LBS.fromStrict) $ _webSocket_recv wsocket
       let successfullyDecodedMessages = ffilter isJust decodedMessages
       let receivedMessageEvents = fmap (Create . fromJust) successfullyDecodedMessages
@@ -47,7 +47,7 @@ main = mainWidgetWithCss $(embedFile "client/style.css") $ do
   return ()
 
 app :: MonadWidget t m => Dynamic t (Map.Map Integer ChatMessage) -> m (Event t (UserEvent String))
-app messages = do
+app messages =
   elAttr "div" ("id" =: "page-wrap") $ do
     el "h1" $ text "Reflex-DOM Chat App"
 
@@ -77,18 +77,17 @@ app messages = do
 
     return $ fmap Create newMessageEvent
 
-renderMessages messages = do
-  elAttr "ul" ("class" =: "message-list") $ do
-    listViewWithKey messages $ \_ message ->
+renderMessages messages =
+  elAttr "ul" ("class" =: "message-list") $ listViewWithKey messages $ \_ message ->
       el "li" $ do
         dynText =<< mapDyn (\msg -> view authorName msg ++ ": " ++ view messageText msg) message
         return never
 
 renderNewMessageForm :: MonadWidget t m => m (Dynamic t String, Event t String)
 renderNewMessageForm = el "div" $ do
-  rec newChatMessageInput <- textInput (def & setValue .~ newMessageSent)
+  rec newChatMessageInput <- textInput (def & setValue .~ fmap (const "") newMessageSent)
       sendEvent <- button "Send"
-      let enterKeyPressed = fmap (const ()) $ ffilter (== keycodeEnter) (_textInput_keypress newChatMessageInput)
-      let newMessageSent = fmap (const "") $ leftmost [enterKeyPressed, sendEvent]
+      let enterKeyPressed = fmap (const ()) $ textInputGetEnter newChatMessageInput
+      let newMessageSent = leftmost [enterKeyPressed, sendEvent]
 
-  return $ (_textInput_value newChatMessageInput, tag (current $ _textInput_value newChatMessageInput) newMessageSent)
+  return (_textInput_value newChatMessageInput, tag (current $ _textInput_value newChatMessageInput) newMessageSent)
