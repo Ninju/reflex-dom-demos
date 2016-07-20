@@ -1,10 +1,11 @@
 {-# LANGUAGE RecursiveDo #-}
-import Reflex
-import Reflex.Dom
-import Reflex.Dom.Widget.Basic
+import           Reflex
+import           Reflex.Dom
+import           Reflex.Dom.Widget.Basic
 import qualified Data.Map as Map
-import GHCJS.DOM.Element
-import Control.Monad.IO.Class
+import           GHCJS.DOM.Element
+import           Control.Monad.IO.Class
+import qualified GHCJS.DOM.JSFFI.Generated.HTMLInputElement as Input
 
 placeholderName = "Click to edit the name"
 
@@ -23,7 +24,7 @@ app = do
 
         let inEditingState = leftmost [enterKeyPressed, nameBlurred, nameClicked]
 
-        performEvent_ $ fmap (const $ liftIO $ focus $ _textInput_element nameT) inEditingState
+        performEvent_ $ fmap (const $ liftIO $ Input.select $ _textInput_element nameT) inEditingState
 
         nameTStyle <- dynStyleAttr "display" "none"   ("inline", "none") inEditingState
         nameAttrs  <- dynStyleAttr "display" "inline" ("inline", "none") $ fmap not inEditingState

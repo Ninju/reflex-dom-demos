@@ -2856,10 +2856,10 @@ function h$_hs_text_encode_utf8(destp_v, destp_o, src_v, srcoff, srclen) {
   destp_v.arr[destp_o][1] = dest;
 }
 function h$get_current_timezone_seconds(t, pdst_v, pdst_o, pname_v, pname_o) {
-    var d = new Date(t);
+    var d = new Date(t * 1000);
     var now = new Date();
     var jan = new Date(now.getFullYear(),0,1);
-    var jul = new Date(now.getFullYear(),0,7);
+    var jul = new Date(now.getFullYear(),6,1);
     var stdOff = Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
     var isDst = d.getTimezoneOffset() < stdOff;
     var tzo = d.getTimezoneOffset();
