@@ -6,7 +6,7 @@ import qualified Data.Map as Map
 type Task = String
 
 initialTasks :: Map.Map Int Task
-initialTasks = foldl (\curMap id -> Map.insert id ("Item #" ++ show id) curMap) Map.empty [1..5]
+initialTasks = foldl (\curMap id -> Map.insert id ("Task #" ++ show id) curMap) Map.empty [1..5]
 
 main = mainWidget app
 
@@ -23,10 +23,10 @@ app = do
 
 renderApp :: (Ord k, MonadWidget t m) => Dynamic t (Map.Map k Task) -> m (Event t (Map.Map k (Task -> Maybe Task)))
 renderApp dynTasks = do
-  el "h1" $ text "Delete static items"
+  el "h1" $ text "Delete tasks"
   el "ul" $ do
-    listViewWithKey dynTasks $ \k itemName -> do
+    listViewWithKey dynTasks $ \k taskName -> do
       el "li" $ do
-        dynText itemName
+        dynText taskName
         deleteEvent <- button "Delete"
         return $ tagDyn (constDyn (const Nothing)) deleteEvent

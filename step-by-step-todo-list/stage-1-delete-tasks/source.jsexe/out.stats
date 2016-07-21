@@ -1,25 +1,32 @@
 code size summary per package:
 
+9GHT37n6OcY72rqgibJ1Bi:  1164
+F3lLww8csW6En7phubNVtA:  2693
 base:                    286387
-conta_5w3UY4chXx62LVUOUrXeRm:112746
-depen_5vw10fkSDDD0LdF4Qk8khv:2833
-depen_HCFzp6ZGqMz1lvJkHhl9BD:47628
-excep_GsT9breZyJSLZ8kkCjLGTR:4658
+conta_5w3UY4chXx62LVUOUrXeRm:112786
+depen_17GTDr7yCOi4N8BNhd6XOO:47117
+excep_HfX47qAol2O2LctGygtuuo:4620
 ghc-prim:                10936
-ghcjs_B7KLFJ07Vte3zPHAgRIBTb:10659
-ghcjs_D7BYGeMTlMGF2My8KZzKUS:137601
+ghcjs_B7KLFJ07Vte3zPHAgRIBTb:10617
+ghcjs_F1mWODwfCMO30MeG1SrT96:145999
 ghcjs_Kc7TQ2cEDg1F5e5cgY2Vuk:3838
 integer-gmp:             1925
-main:                    21051
-refle_BP42iAL8rA7IBOuWCaV0zs:411352
-refle_Ezmh8J8zddT8PJFP8lPNqy:444219
-reftf_JOU40Nd0lxyACBtr3v80Qj:1202
+main:                    21028
+refle_AP5ThgsLIQzEcQVSTX7cu8:435779
+refle_EwcELJSNfXz458tkz6MgJ5:414074
 text_1ffW5NTi2SPHBcBuYSkgjk:19877
-these_6AzwGhJzfucJgGlyPQnsSR:2743
+these_LIweLifhhiN5Al0Ys4dslt:2705
 trans_KzbnBSIEqPI2eU1Inn4mzm:27894
 
 
 code size per module:
+
+9GHT37n6OcY72rqgibJ1Bi
+    Control.Monad.Ref:                  1164
+
+F3lLww8csW6En7phubNVtA
+    Data.Dependent.Sum:                 614
+    Data.GADT.Compare:                  2079
 
 base
     Control.Concurrent.Chan:            3533
@@ -74,18 +81,14 @@ base
 conta_5w3UY4chXx62LVUOUrXeRm
     Data.IntMap.Base:                   11332
     Data.Map.Base:                      89539
-    Data.Map.Strict:                    11875
+    Data.Map.Strict:                    11915
 
-depen_5vw10fkSDDD0LdF4Qk8khv
-    Data.Dependent.Sum:                 649
-    Data.GADT.Compare:                  2184
+depen_17GTDr7yCOi4N8BNhd6XOO
+    Data.Dependent.Map:                 14018
+    Data.Dependent.Map.Internal:        33099
 
-depen_HCFzp6ZGqMz1lvJkHhl9BD
-    Data.Dependent.Map:                 14172
-    Data.Dependent.Map.Internal:        33456
-
-excep_GsT9breZyJSLZ8kkCjLGTR
-    Control.Monad.Exception:            4658
+excep_HfX47qAol2O2LctGygtuuo
+    Control.Monad.Exception:            4620
 
 ghc-prim
     GHC.CString:                        1876
@@ -95,17 +98,17 @@ ghc-prim
     GHC.Types:                          1167
 
 ghcjs_B7KLFJ07Vte3zPHAgRIBTb
-    GHCJS.Prim:                         6227
-    GHCJS.Prim.Internal:                4432
+    GHCJS.Prim:                         6211
+    GHCJS.Prim.Internal:                4406
 
-ghcjs_D7BYGeMTlMGF2My8KZzKUS
-    GHCJS.DOM:                          5111
-    GHCJS.DOM.EventM:                   1334
-    GHCJS.DOM.JSFFI.Generated.Document: 3569
-    GHCJS.DOM.JSFFI.Generated.Element:  32612
-    GHCJS.DOM.JSFFI.Generated.Node:     3178
-    GHCJS.DOM.JSFFI.Generated.Window:   1482
-    GHCJS.DOM.Types:                    90315
+ghcjs_F1mWODwfCMO30MeG1SrT96
+    GHCJS.DOM:                          5071
+    GHCJS.DOM.EventM:                   1344
+    GHCJS.DOM.JSFFI.Generated.Document: 3553
+    GHCJS.DOM.JSFFI.Generated.Element:  32244
+    GHCJS.DOM.JSFFI.Generated.Node:     5542
+    GHCJS.DOM.JSFFI.Generated.Window:   1478
+    GHCJS.DOM.Types:                    96767
 
 ghcjs_Kc7TQ2cEDg1F5e5cgY2Vuk
     GHCJS.Marshal:                      2480
@@ -117,22 +120,19 @@ integer-gmp
     GHC.Integer.Type:                   1753
 
 main
-    Main:                               21051
+    Main:                               21028
 
-refle_BP42iAL8rA7IBOuWCaV0zs
-    Data.Functor.Misc:                  8383
-    Reflex.Class:                       25312
-    Reflex.Dynamic:                     15990
-    Reflex.Host.Class:                  2209
-    Reflex.Spider.Internal:             359458
+refle_AP5ThgsLIQzEcQVSTX7cu8
+    Reflex.Dom.Class:                   17203
+    Reflex.Dom.Internal:                114349
+    Reflex.Dom.Widget.Basic:            304227
 
-refle_Ezmh8J8zddT8PJFP8lPNqy
-    Reflex.Dom.Class:                   17899
-    Reflex.Dom.Internal:                120563
-    Reflex.Dom.Widget.Basic:            305757
-
-reftf_JOU40Nd0lxyACBtr3v80Qj
-    Control.Monad.Ref:                  1202
+refle_EwcELJSNfXz458tkz6MgJ5
+    Data.Functor.Misc:                  8324
+    Reflex.Class:                       25337
+    Reflex.Dynamic:                     16044
+    Reflex.Host.Class:                  2223
+    Reflex.Spider.Internal:             362146
 
 text_1ffW5NTi2SPHBcBuYSkgjk
     Data.Text:                          3242
@@ -140,9 +140,9 @@ text_1ffW5NTi2SPHBcBuYSkgjk
     Data.Text.Internal:                 1246
     Data.Text.Show:                     14473
 
-these_6AzwGhJzfucJgGlyPQnsSR
-    Data.Align:                         1909
-    Data.These:                         834
+these_LIweLifhhiN5Al0Ys4dslt
+    Data.Align:                         1889
+    Data.These:                         816
 
 trans_KzbnBSIEqPI2eU1Inn4mzm
     Control.Monad.IO.Class:             747
@@ -152,5 +152,5 @@ trans_KzbnBSIEqPI2eU1Inn4mzm
 
 
 
-packed metadata: 306622
+packed metadata: 308652
 
