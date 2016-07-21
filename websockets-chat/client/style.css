@@ -1,0 +1,60 @@
+* { margin: 0; padding: 0 }
+
+h1,h2,h3,h4,h5,h6,
+p,
+div,
+ul,
+header,
+footer,
+section,
+article { margin-bottom: 1.5rem; }
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+h1 { text-align: center; }
+
+#page-wrap {
+  padding: 1.5rem;
+  width: 600px;
+  margin: 0 auto;
+}
+
+ul.message-list {
+  list-style: none;
+  background-color: #f0f0f0;
+  min-height: 400px;
+}
+
+ul.message-list li {
+  padding: 0.5rem;
+}
+
+ul.message-list li:nth-child(odd) {
+  background-color: #f5f5f5;
+}
+
+input[type=text] {
+  width: 90%;
+  display: inline-block;
+}
+
+input[type=button] {
+  width: 10%;
+}
+
+.debug-info {
+  font-size: 0.75rem;
+}
+
+.debug-info p {
+  margin-bottom: 0rem;
+}
+
+.debug-info h2 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0rem;
+}
