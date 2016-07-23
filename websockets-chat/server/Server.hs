@@ -1,5 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TemplateHaskell #-}
 module Server.Server where
 import           Control.Concurrent
 import           Control.Lens
@@ -41,11 +41,7 @@ main = do
 wsApp :: MVar AppState -> ServerApp
 wsApp appState pendingConn = do
   conn <- acceptRequest pendingConn
-  registerConnection appState conn
-
-  appState' <- tryReadMVar appState
-
-  let nickname = nicknames !! (fromMaybe 0 (appState' >>= return . length . view activeConnections))
+  nickname <- registerConnection appState conn
 
   forkPingThread conn 10
 
@@ -99,8 +95,11 @@ logAppState appState = do
     Nothing    -> putStrLn "There is no app state."
     Just state -> putStrLn $ "App State: " ++ show state
 
-registerConnection :: MVar AppState -> Connection -> IO ()
-registerConnection appState conn = modifyMVar_ appState (return . over activeConnections (conn:))
+registerConnection :: MVar AppState -> Connection -> IO String
+registerConnection appState conn =
+  modifyMVar appState $ \appState' -> do
+    let nickname = nicknames !! (length $ view activeConnections appState')
+    return $ (over activeConnections (conn:) appState', nickname)
 
 storeMessage :: MVar AppState -> ChatMessage -> IO ()
 storeMessage appState msg = modifyMVar_ appState (return . over messages (msg:))
