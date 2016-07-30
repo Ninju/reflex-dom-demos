@@ -1,0 +1,180 @@
+code size summary per package:
+
+1EEwSYlJ04h7IdDYQ4AWtH:  9600
+1a4OrN8TCr14yLKcLwXWac:  6117
+2pqdaejQiEvAYFJcyXX68e:  4546
+32pn3uqmK6a1S05OFIHyKd:  198516
+3bVHNR8TsszJ2MpFVVLSMv:  11006
+3uGAZNamOOGEUs5PlcnTcb:  27462
+5jRGnXN5UUuJRNeROcKuFV:  2605
+7gQgjsCbtia221AbCatxbd:  505170
+7sLISIIJWJ4DujkHKLi0Yv:  431080
+8h7HGwEShX6FR6guYMmXT:   2749
+8xBGNf2bnbSAoQ9g04EarC:  46759
+9HoNtaKJFcYIu8TjqTClVk:  1172
+AAikaGQPPfU9Gc3PgbHKwt:  155757
+DzMQsFu2TUmDJj41CdsLaJ:  19692
+IgTSpKaBpIiLgG92JiM3AP:  1053
+base:                    323412
+ghc-prim:                27573
+integer-gmp:             5745
+lens_1SQqYawttDaL5ZfRo7G62v:830
+main:                    63551
+
+
+code size per module:
+
+1EEwSYlJ04h7IdDYQ4AWtH
+    GHCJS.Marshal:                      7113
+    GHCJS.Marshal.Internal:             1786
+    GHCJS.Marshal.Pure:                 701
+
+1a4OrN8TCr14yLKcLwXWac
+    Data.List.NonEmpty:                 290
+    Data.Semigroup:                     5827
+
+2pqdaejQiEvAYFJcyXX68e
+    Control.Monad.Exception:            4546
+
+32pn3uqmK6a1S05OFIHyKd
+    Data.IntMap.Base:                   11180
+    Data.Map.Base:                      123341
+    Data.Map.Strict:                    11803
+    Data.Set.Base:                      52192
+
+3bVHNR8TsszJ2MpFVVLSMv
+    GHCJS.Prim:                         6567
+    GHCJS.Prim.Internal:                4439
+
+3uGAZNamOOGEUs5PlcnTcb
+    Control.Monad.IO.Class:             722
+    Control.Monad.Trans.Reader:         7741
+    Control.Monad.Trans.State.Lazy:     9957
+    Control.Monad.Trans.State.Strict:   9042
+
+5jRGnXN5UUuJRNeROcKuFV
+    Data.Align:                         1825
+    Data.These:                         780
+
+7gQgjsCbtia221AbCatxbd
+    Reflex.Dom.Class:                   17069
+    Reflex.Dom.Internal:                112936
+    Reflex.Dom.Widget.Basic:            340572
+    Reflex.Dom.Widget.Input:            34593
+
+7sLISIIJWJ4DujkHKLi0Yv
+    Data.Functor.Misc:                  8114
+    Reflex.Class:                       36909
+    Reflex.Dynamic:                     27258
+    Reflex.Host.Class:                  2137
+    Reflex.Spider.Internal:             356662
+
+8h7HGwEShX6FR6guYMmXT
+    Data.Dependent.Sum:                 626
+    Data.GADT.Compare:                  2123
+
+8xBGNf2bnbSAoQ9g04EarC
+    Data.Dependent.Map:                 13943
+    Data.Dependent.Map.Internal:        32816
+
+9HoNtaKJFcYIu8TjqTClVk
+    Control.Monad.Ref:                  1172
+
+AAikaGQPPfU9Gc3PgbHKwt
+    GHCJS.DOM:                          4925
+    GHCJS.DOM.EventM:                   1867
+    GHCJS.DOM.JSFFI.Generated.Document: 3500
+    GHCJS.DOM.JSFFI.Generated.Element:  31943
+    GHCJS.DOM.JSFFI.Generated.HTMLInputElement:976
+    GHCJS.DOM.JSFFI.Generated.NamedNodeMap:922
+    GHCJS.DOM.JSFFI.Generated.Node:     6552
+    GHCJS.DOM.JSFFI.Generated.Window:   1462
+    GHCJS.DOM.Types:                    103610
+
+DzMQsFu2TUmDJj41CdsLaJ
+    Data.Text:                          3202
+    Data.Text.Array:                    876
+    Data.Text.Internal:                 1206
+    Data.Text.Show:                     14408
+
+IgTSpKaBpIiLgG92JiM3AP
+    Control.Monad.Reader.Class:         1053
+
+base
+    Control.Applicative:                212
+    Control.Concurrent.Chan:            3533
+    Control.Exception.Base:             4020
+    Control.Monad:                      946
+    Control.Monad.Fix:                  584
+    Data.Foldable:                      3768
+    Data.Function:                      86
+    Data.Functor.Identity:              224
+    Data.Maybe:                         1524
+    Data.Traversable:                   3951
+    Data.Tuple:                         334
+    Data.Type.Equality:                 287
+    Data.Typeable:                      885
+    Data.Typeable.Internal:             1418
+    Foreign.C.Error:                    9812
+    Foreign.Marshal.Alloc:              375
+    Foreign.Marshal.Array:              2038
+    Foreign.Storable:                   2680
+    GHC.Base:                           19151
+    GHC.Conc.Sync:                      7822
+    GHC.Enum:                           11755
+    GHC.Err:                            218
+    GHC.Exception:                      5575
+    GHC.Foreign:                        12136
+    GHC.ForeignPtr:                     1265
+    GHC.IO:                             4536
+    GHC.IO.Buffer:                      1276
+    GHC.IO.BufferedIO:                  864
+    GHC.IO.Device:                      1297
+    GHC.IO.Encoding:                    1030
+    GHC.IO.Encoding.Failure:            724
+    GHC.IO.Encoding.Types:              1032
+    GHC.IO.Encoding.UTF8:               61149
+    GHC.IO.Exception:                   17125
+    GHC.IO.FD:                          37215
+    GHC.IO.Handle:                      416
+    GHC.IO.Handle.FD:                   6981
+    GHC.IO.Handle.Internals:            27136
+    GHC.IO.Handle.Types:                3571
+    GHC.IORef:                          166
+    GHC.Int:                            802
+    GHC.List:                           10948
+    GHC.MVar:                           188
+    GHC.Num:                            2899
+    GHC.Ptr:                            188
+    GHC.Real:                           467
+    GHC.ST:                             186
+    GHC.STRef:                          648
+    GHC.Show:                           19879
+    GHC.Storable:                       1084
+    GHC.TopHandler:                     10349
+    GHC.Weak:                           188
+    GHC.Word:                           350
+    System.Posix.Internals:             16119
+
+ghc-prim
+    GHC.CString:                        1888
+    GHC.Classes:                        22760
+    GHC.IntWord64:                      146
+    GHC.Tuple:                          1451
+    GHC.Types:                          1328
+
+integer-gmp
+    GHC.Integer.GMP.Prim:               333
+    GHC.Integer.Type:                   5412
+
+lens_1SQqYawttDaL5ZfRo7G62v
+    Control.Lens.Getter:                369
+    Control.Lens.Setter:                461
+
+main
+    Main:                               63551
+
+
+
+packed metadata: 358442
+
