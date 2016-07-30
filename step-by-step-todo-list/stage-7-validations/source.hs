@@ -26,7 +26,7 @@ instance Validatable Task where
 applyUserOp :: Validatable a => UserEvent a -> Maybe a -> Maybe a
 applyUserOp Delete = const Nothing
 applyUserOp (Create a) = const (mfilter isValid (Just a))
-applyUserOp (Edit f) = fmap f
+applyUserOp (Edit f) = \t -> maybe t Just $ mfilter isValid $ fmap f t
 applyUserOp (Batch f op) = \t -> maybe t (applyUserOp op . Just) $ mfilter f t
 
 newTask :: String -> Task

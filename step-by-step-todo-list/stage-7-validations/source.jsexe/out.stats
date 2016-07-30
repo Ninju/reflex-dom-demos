@@ -7,7 +7,7 @@ code size summary per package:
 3bVHNR8TsszJ2MpFVVLSMv:  11006
 3uGAZNamOOGEUs5PlcnTcb:  27462
 5jRGnXN5UUuJRNeROcKuFV:  2605
-7gQgjsCbtia221AbCatxbd:  505170
+7gQgjsCbtia221AbCatxbd:  505160
 7sLISIIJWJ4DujkHKLi0Yv:  431080
 8h7HGwEShX6FR6guYMmXT:   2749
 8xBGNf2bnbSAoQ9g04EarC:  46759
@@ -15,11 +15,11 @@ code size summary per package:
 AAikaGQPPfU9Gc3PgbHKwt:  155757
 DzMQsFu2TUmDJj41CdsLaJ:  19692
 IgTSpKaBpIiLgG92JiM3AP:  1053
-base:                    323412
-ghc-prim:                27573
+base:                    323222
+ghc-prim:                27119
 integer-gmp:             5745
 lens_1SQqYawttDaL5ZfRo7G62v:830
-main:                    63551
+main:                    63264
 
 
 code size per module:
@@ -59,7 +59,7 @@ code size per module:
 7gQgjsCbtia221AbCatxbd
     Reflex.Dom.Class:                   17069
     Reflex.Dom.Internal:                112936
-    Reflex.Dom.Widget.Basic:            340572
+    Reflex.Dom.Widget.Basic:            340562
     Reflex.Dom.Widget.Input:            34593
 
 7sLISIIJWJ4DujkHKLi0Yv
@@ -106,7 +106,7 @@ base
     Control.Exception.Base:             4020
     Control.Monad:                      946
     Control.Monad.Fix:                  584
-    Data.Foldable:                      3768
+    Data.Foldable:                      3578
     Data.Function:                      86
     Data.Functor.Identity:              224
     Data.Maybe:                         1524
@@ -158,7 +158,7 @@ base
 
 ghc-prim
     GHC.CString:                        1888
-    GHC.Classes:                        22760
+    GHC.Classes:                        22306
     GHC.IntWord64:                      146
     GHC.Tuple:                          1451
     GHC.Types:                          1328
@@ -172,9 +172,9 @@ lens_1SQqYawttDaL5ZfRo7G62v
     Control.Lens.Setter:                461
 
 main
-    Main:                               63551
+    Main:                               63264
 
 
 
-packed metadata: 358442
+packed metadata: 358015
 
