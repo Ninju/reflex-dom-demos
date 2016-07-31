@@ -2,6 +2,7 @@
 {-# LANGUAGE TemplateHaskell #-}
 import           Control.Lens
 import           Control.Monad
+import           Data.FileEmbed
 import qualified Data.Map as Map
 import           Reflex
 import           Reflex.Dom
@@ -41,7 +42,7 @@ satisfiesFilter All       = const True
 satisfiesFilter Completed = view taskCompleted
 satisfiesFilter Active    = not . view taskCompleted
 
-main = mainWidget app
+main = mainWidgetWithCss $(embedFile "index.css") app
 
 updateWithMap = flip (Map.foldlWithKey applyUserOperation)
                 where

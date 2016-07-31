@@ -7,19 +7,20 @@ code size summary per package:
 3bVHNR8TsszJ2MpFVVLSMv:  11006
 3uGAZNamOOGEUs5PlcnTcb:  27462
 5jRGnXN5UUuJRNeROcKuFV:  2605
-7gQgjsCbtia221AbCatxbd:  510404
+7gQgjsCbtia221AbCatxbd:  533253
 7sLISIIJWJ4DujkHKLi0Yv:  432597
 8h7HGwEShX6FR6guYMmXT:   2749
 8xBGNf2bnbSAoQ9g04EarC:  46759
 9HoNtaKJFcYIu8TjqTClVk:  1172
-AAikaGQPPfU9Gc3PgbHKwt:  156193
-DzMQsFu2TUmDJj41CdsLaJ:  19692
+AAikaGQPPfU9Gc3PgbHKwt:  157115
+DzMQsFu2TUmDJj41CdsLaJ:  29407
+EtfqH07mrmv6LF31KlzP6n:  1820
 IgTSpKaBpIiLgG92JiM3AP:  1053
-base:                    323410
-ghc-prim:                28318
-integer-gmp:             5745
+base:                    370068
+ghc-prim:                29296
+integer-gmp:             16326
 lens_1SQqYawttDaL5ZfRo7G62v:830
-main:                    85463
+main:                    93036
 
 
 code size per module:
@@ -58,8 +59,8 @@ code size per module:
 
 7gQgjsCbtia221AbCatxbd
     Reflex.Dom.Class:                   17250
-    Reflex.Dom.Internal:                112936
-    Reflex.Dom.Widget.Basic:            343458
+    Reflex.Dom.Internal:                135367
+    Reflex.Dom.Widget.Basic:            343876
     Reflex.Dom.Widget.Input:            36760
 
 7sLISIIJWJ4DujkHKLi0Yv
@@ -83,19 +84,26 @@ code size per module:
 AAikaGQPPfU9Gc3PgbHKwt
     GHCJS.DOM:                          4925
     GHCJS.DOM.EventM:                   1867
-    GHCJS.DOM.JSFFI.Generated.Document: 3500
+    GHCJS.DOM.JSFFI.Generated.Document: 4328
     GHCJS.DOM.JSFFI.Generated.Element:  31943
     GHCJS.DOM.JSFFI.Generated.HTMLInputElement:1412
     GHCJS.DOM.JSFFI.Generated.NamedNodeMap:922
     GHCJS.DOM.JSFFI.Generated.Node:     6552
     GHCJS.DOM.JSFFI.Generated.Window:   1462
-    GHCJS.DOM.Types:                    103610
+    GHCJS.DOM.Types:                    103704
 
 DzMQsFu2TUmDJj41CdsLaJ
     Data.Text:                          3202
     Data.Text.Array:                    876
+    Data.Text.Encoding.Error:           6498
     Data.Text.Internal:                 1206
+    Data.Text.Internal.Encoding.Fusion: 1749
+    Data.Text.Internal.Fusion.Types:    1468
     Data.Text.Show:                     14408
+
+EtfqH07mrmv6LF31KlzP6n
+    Data.ByteString.Internal:           1029
+    Data.ByteString.Unsafe:             791
 
 IgTSpKaBpIiLgG92JiM3AP
     Control.Monad.Reader.Class:         1053
@@ -121,12 +129,12 @@ base
     Foreign.Storable:                   2680
     GHC.Base:                           19151
     GHC.Conc.Sync:                      7822
-    GHC.Enum:                           11755
+    GHC.Enum:                           19069
     GHC.Err:                            218
-    GHC.Exception:                      5575
+    GHC.Exception:                      9546
     GHC.Foreign:                        12136
     GHC.ForeignPtr:                     1265
-    GHC.IO:                             4536
+    GHC.IO:                             4747
     GHC.IO.Buffer:                      1276
     GHC.IO.BufferedIO:                  864
     GHC.IO.Device:                      1297
@@ -146,26 +154,27 @@ base
     GHC.MVar:                           188
     GHC.Num:                            2899
     GHC.Ptr:                            188
-    GHC.Real:                           467
+    GHC.Real:                           11286
     GHC.ST:                             186
     GHC.STRef:                          648
-    GHC.Show:                           19879
+    GHC.Show:                           21907
     GHC.Storable:                       1084
     GHC.TopHandler:                     10349
     GHC.Weak:                           188
-    GHC.Word:                           350
+    GHC.Word:                           17561
+    Numeric:                            5104
     System.Posix.Internals:             16119
 
 ghc-prim
     GHC.CString:                        1888
-    GHC.Classes:                        23132
+    GHC.Classes:                        24110
     GHC.IntWord64:                      146
     GHC.Tuple:                          1824
     GHC.Types:                          1328
 
 integer-gmp
     GHC.Integer.GMP.Prim:               333
-    GHC.Integer.Type:                   5412
+    GHC.Integer.Type:                   15993
 
 lens_1SQqYawttDaL5ZfRo7G62v
     Control.Lens.Getter:                369
@@ -173,9 +182,9 @@ lens_1SQqYawttDaL5ZfRo7G62v
 
 main
     Helpers.EditInPlace:                21354
-    Main:                               64109
+    Main:                               71682
 
 
 
-packed metadata: 367046
+packed metadata: 389405
 
