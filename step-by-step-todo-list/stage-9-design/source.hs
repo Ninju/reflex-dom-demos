@@ -2,10 +2,14 @@
 {-# LANGUAGE TemplateHaskell #-}
 import           Control.Lens
 import           Control.Monad
+import           Control.Monad.IO.Class
 import           Data.FileEmbed
 import qualified Data.Map as Map
+import           Data.Monoid ((<>))
+
 import           Reflex
 import           Reflex.Dom
+
 import           Helpers.EditInPlace (editInPlace)
 
 data Task = Task { _taskDescription :: String
@@ -51,26 +55,32 @@ updateWithMap = flip (Map.foldlWithKey applyUserOperation)
 prepareBatchOp :: Reflex t => Dynamic t (Map.Map Int Task) -> Event t (UserEvent Task) -> Event t (Map.Map Int (UserEvent Task))
 prepareBatchOp tasks = attachWith (\taskMap toggleVal -> Map.map (const toggleVal) taskMap) (current tasks)
 
+header title =
+  elAttr "header" ("class" =: "header") $ do
+    el "h1" $ text title
+    renderNewTaskForm
+
 app = do
-  rec filterChange   <- renderFilters [All, Active, Completed]
-      toggleAll      <- renderToggleAllButton
-      clearCompleted <- renderClearCompletedButton
-      userEvents     <- renderApp filteredTasks
-      newTaskEvent   <- renderNewTaskForm
+  elAttr "section" ("class" =: "todoapp") $ do
+    rec newTaskEvent   <- header "todos"
+        filterChange   <- renderFilters [All, Active, Completed]
+        toggleAll      <- renderToggleAllButton
+        clearCompleted <- renderClearCompletedButton
+        userEvents     <- renderApp filteredTasks
 
-      newTaskIds     <- mapDyn (+6) =<< count newTaskEvent
-      tasks          <- foldDyn updateWithMap
-                                initialTasks
-                                $ mconcat [ userEvents
-                                          , attachDynWith Map.singleton newTaskIds newTaskEvent
-                                          , prepareBatchOp tasks toggleAll
-                                          , prepareBatchOp tasks clearCompleted
-                                          ]
+        newTaskIds     <- mapDyn (+6) =<< count newTaskEvent
+        tasks          <- foldDyn updateWithMap
+                                  initialTasks
+                                  $ mconcat [ userEvents
+                                            , attachDynWith Map.singleton newTaskIds newTaskEvent
+                                            , prepareBatchOp tasks toggleAll
+                                            , prepareBatchOp tasks clearCompleted
+                                            ]
 
-      activeFilterDyn    <- holdDyn All filterChange
-      filteredTasks      <- combineDyn (Map.filter . satisfiesFilter) activeFilterDyn tasks
+        activeFilterDyn    <- holdDyn All filterChange
+        filteredTasks      <- combineDyn (Map.filter . satisfiesFilter) activeFilterDyn tasks
 
-  return ()
+    return ()
 
 renderClearCompletedButton :: MonadWidget t m => m (Event t (UserEvent Task))
 renderClearCompletedButton = do
@@ -84,7 +94,6 @@ renderToggleAllButton = do
 
 renderApp :: (Ord k, MonadWidget t m) => Dynamic t (Map.Map k Task) -> m (Event t (Map.Map k (UserEvent Task)))
 renderApp dynTasks = do
-  el "h1" $ text "Edit tasks"
   el "ul" $ do
     listViewWithKey dynTasks $ \k task -> do
       el "li" $ do
@@ -99,11 +108,14 @@ renderApp dynTasks = do
         return $ leftmost [deleteEvents, toggleCompletedEvents, changeTaskDescriptionEvents]
 
 renderNewTaskForm = do
-  elAttr "label" ("for" =: "new-task-name") $ text "Task name: "
-  t <- textInput (def & attributes .~ constDyn (Map.singleton "id" "new-task-name"))
-  clickEvent <- button "Create task"
-  dynCreates <- mapDyn (Create . newTask) (_textInput_value t)
-  return $ tagDyn dynCreates clickEvent
+  rec let newValueEntered = textInputGetEnter newTaskInput
+      newTaskInput <- textInput $ def & attributes .~ constDyn (  "class" =: "new-todo"
+                                                               <> "placeholder" =: "What needs to be done?"
+                                                               )
+                                      & setValue .~ fmap (const "") newValueEntered
+
+  dynCreates <- mapDyn (Create . newTask) (_textInput_value newTaskInput)
+  return $ tag (current dynCreates) newValueEntered
 
 renderFilters :: MonadWidget t m => [Filter] -> m (Event t Filter)
 renderFilters filters =

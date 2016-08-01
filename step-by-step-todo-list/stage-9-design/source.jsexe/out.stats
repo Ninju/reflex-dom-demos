@@ -7,8 +7,8 @@ code size summary per package:
 3bVHNR8TsszJ2MpFVVLSMv:  11006
 3uGAZNamOOGEUs5PlcnTcb:  27462
 5jRGnXN5UUuJRNeROcKuFV:  2605
-7gQgjsCbtia221AbCatxbd:  533253
-7sLISIIJWJ4DujkHKLi0Yv:  432597
+7gQgjsCbtia221AbCatxbd:  534821
+7sLISIIJWJ4DujkHKLi0Yv:  432279
 8h7HGwEShX6FR6guYMmXT:   2749
 8xBGNf2bnbSAoQ9g04EarC:  46759
 9HoNtaKJFcYIu8TjqTClVk:  1172
@@ -16,11 +16,11 @@ AAikaGQPPfU9Gc3PgbHKwt:  157115
 DzMQsFu2TUmDJj41CdsLaJ:  29407
 EtfqH07mrmv6LF31KlzP6n:  1820
 IgTSpKaBpIiLgG92JiM3AP:  1053
-base:                    370068
+base:                    370176
 ghc-prim:                29296
 integer-gmp:             16326
 lens_1SQqYawttDaL5ZfRo7G62v:830
-main:                    93036
+main:                    95663
 
 
 code size per module:
@@ -60,13 +60,13 @@ code size per module:
 7gQgjsCbtia221AbCatxbd
     Reflex.Dom.Class:                   17250
     Reflex.Dom.Internal:                135367
-    Reflex.Dom.Widget.Basic:            343876
-    Reflex.Dom.Widget.Input:            36760
+    Reflex.Dom.Widget.Basic:            343944
+    Reflex.Dom.Widget.Input:            38260
 
 7sLISIIJWJ4DujkHKLi0Yv
     Data.Functor.Misc:                  8114
     Reflex.Class:                       38426
-    Reflex.Dynamic:                     27258
+    Reflex.Dynamic:                     26940
     Reflex.Host.Class:                  2137
     Reflex.Spider.Internal:             356662
 
@@ -118,6 +118,7 @@ base
     Data.Function:                      86
     Data.Functor.Identity:              224
     Data.Maybe:                         1524
+    Data.Monoid:                        108
     Data.Traversable:                   3951
     Data.Tuple:                         334
     Data.Type.Equality:                 287
@@ -182,9 +183,9 @@ lens_1SQqYawttDaL5ZfRo7G62v
 
 main
     Helpers.EditInPlace:                21354
-    Main:                               71682
+    Main:                               74309
 
 
 
-packed metadata: 389405
+packed metadata: 390585
 
