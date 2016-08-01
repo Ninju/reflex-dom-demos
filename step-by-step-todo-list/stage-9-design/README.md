@@ -6,10 +6,10 @@ In a nutshell, it has been redesigned to match [TodoMVC](http://todomvc.com/).
 
 ### In Progress
 
-  [x] CSS included
-  [ ] Header
-    [x] HTML
-    [x] CSS
-    [ ] Autofocus on task entry
-  [ ] Add number of items left count
-  [ ] Double click to edit task descriptions (instead of single-click)
+* [x] CSS included
+* [ ] Header
+    * [x] HTML
+    * [x] CSS
+    * [ ] Autofocus on task entry
+* [ ] Add number of items left count
+* [ ] Double click to edit task descriptions (instead of single-click)
