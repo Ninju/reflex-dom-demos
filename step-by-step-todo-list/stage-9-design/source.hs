@@ -82,6 +82,9 @@ app = do
 
     return ()
 
+  infoFooter "Alex Watt"
+
+
 renderClearCompletedButton :: MonadWidget t m => m (Event t (UserEvent Task))
 renderClearCompletedButton = do
   clearCompletedButton <- button "Clear Completed"
@@ -125,3 +128,12 @@ renderFilters filters =
       return $ fmap (const filter) filterClick
 
     return $ leftmost filterEvents
+
+infoFooter authorName = elAttr "footer" ("class" =: "info") $ do
+  el "p" $ text "Single-click to edit a todo"
+  el "p" $ do
+    text "Created by "
+    elAttr "a" ("href" =: "http://www.github.com/Ninju") $ text authorName
+  el "p" $ do
+    text "Part of "
+    elAttr "a" ("href" =: "http://www.todomvc.com") $ text "TodoMVC"

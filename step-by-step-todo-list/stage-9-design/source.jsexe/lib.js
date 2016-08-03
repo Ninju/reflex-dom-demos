@@ -2287,6 +2287,12 @@ function h$shutdownHaskellAndExit(code, fast) {
 function h$rand() {
   return (32768 * Math.random()) & 32767;
 }
+function h$ghcjs_currentWindow() {
+  return window;
+};
+function h$ghcjs_currentDocument() {
+  return document;
+};
 
 
 
@@ -2497,25 +2503,35 @@ function h$buildObjectFromTupList(xs) {
     }
     return r;
 }
-function h$ghcjs_currentWindow() {
-  return window;
-};
-function h$ghcjs_currentDocument() {
-  return document;
-};
-function h$get_current_timezone_seconds(t, pdst_v, pdst_o, pname_v, pname_o) {
-    var d = new Date(t * 1000);
-    var now = new Date();
-    var jan = new Date(now.getFullYear(),0,1);
-    var jul = new Date(now.getFullYear(),6,1);
-    var stdOff = Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
-    var isDst = d.getTimezoneOffset() < stdOff;
-    var tzo = d.getTimezoneOffset();
-    pdst_v.dv.setInt32(pdst_o, isDst ? 1 : 0, true);
-    if(!pname_v.arr) pname_v.arr = [];
-    var offstr = tzo < 0 ? ('+' + (tzo/-60)) : ('' + (tzo/-60));
-    pname_v.arr[pname_o] = [h$encodeUtf8("UTC" + offstr), 0];
-    return (-60*tzo)|0;
+/* FNV-1 hash
+ *
+ * The FNV-1 hash description: http://isthe.com/chongo/tech/comp/fnv/
+ * The FNV-1 hash is public domain: http://isthe.com/chongo/tech/comp/fnv/#public_domain
+ */
+function h$hashable_fnv_hash_offset(str_a, o, len, hash) {
+  return h$hashable_fnv_hash(str_a, o, len, hash);
+}
+
+function h$hashable_fnv_hash(str_d, str_o, len, hash) {
+  if(len > 0) {
+    var d = str_d.u8;
+    for(var i=0;i<len;i++) {
+      hash = h$mulInt32(hash, 16777619) ^ d[str_o+i];
+    }
+  }
+  return hash;
+}
+
+
+// int hashable_getRandomBytes(unsigned char *dest, int nbytes)
+function h$hashable_getRandomBytes(dest_d, dest_o, len) {
+  if(len > 0) {
+    var d = dest_d.u8;
+    for(var i=0;i<len;i++) {
+      d[dest_o+i] = Math.floor(Math.random() * 256);
+    }
+  }
+  return len;
 }
 
 
@@ -2839,35 +2855,19 @@ function h$_hs_text_encode_utf8(destp_v, destp_o, src_v, srcoff, srclen) {
   }
   destp_v.arr[destp_o][1] = dest;
 }
-/* FNV-1 hash
- *
- * The FNV-1 hash description: http://isthe.com/chongo/tech/comp/fnv/
- * The FNV-1 hash is public domain: http://isthe.com/chongo/tech/comp/fnv/#public_domain
- */
-function h$hashable_fnv_hash_offset(str_a, o, len, hash) {
-  return h$hashable_fnv_hash(str_a, o, len, hash);
-}
-
-function h$hashable_fnv_hash(str_d, str_o, len, hash) {
-  if(len > 0) {
-    var d = str_d.u8;
-    for(var i=0;i<len;i++) {
-      hash = h$mulInt32(hash, 16777619) ^ d[str_o+i];
-    }
-  }
-  return hash;
-}
-
-
-// int hashable_getRandomBytes(unsigned char *dest, int nbytes)
-function h$hashable_getRandomBytes(dest_d, dest_o, len) {
-  if(len > 0) {
-    var d = dest_d.u8;
-    for(var i=0;i<len;i++) {
-      d[dest_o+i] = Math.floor(Math.random() * 256);
-    }
-  }
-  return len;
+function h$get_current_timezone_seconds(t, pdst_v, pdst_o, pname_v, pname_o) {
+    var d = new Date(t * 1000);
+    var now = new Date();
+    var jan = new Date(now.getFullYear(),0,1);
+    var jul = new Date(now.getFullYear(),6,1);
+    var stdOff = Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
+    var isDst = d.getTimezoneOffset() < stdOff;
+    var tzo = d.getTimezoneOffset();
+    pdst_v.dv.setInt32(pdst_o, isDst ? 1 : 0, true);
+    if(!pname_v.arr) pname_v.arr = [];
+    var offstr = tzo < 0 ? ('+' + (tzo/-60)) : ('' + (tzo/-60));
+    pname_v.arr[pname_o] = [h$encodeUtf8("UTC" + offstr), 0];
+    return (-60*tzo)|0;
 }
 
 
