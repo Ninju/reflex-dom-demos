@@ -4,6 +4,7 @@ import           Control.Lens
 import           Control.Monad
 import           Control.Monad.IO.Class
 import           Data.FileEmbed
+import           Data.Map (Map)
 import qualified Data.Map as Map
 import           Data.Monoid ((<>))
 
@@ -28,6 +29,11 @@ class Validatable a where
 
 instance Validatable Task where
   isValid task = view taskDescription task /= ""
+
+buttonAttr :: MonadWidget t m => Map String String -> m () -> m (Event t ())
+buttonAttr attrs w = do
+  (e, _) <- elAttr' "button" attrs $ w
+  return $ domEvent Click e
 
 applyUserOp :: Validatable a => UserEvent a -> Maybe a -> Maybe a
 applyUserOp Delete = const Nothing
@@ -55,19 +61,15 @@ updateWithMap = flip (Map.foldlWithKey applyUserOperation)
 prepareBatchOp :: Reflex t => Dynamic t (Map.Map Int Task) -> Event t (UserEvent Task) -> Event t (Map.Map Int (UserEvent Task))
 prepareBatchOp tasks = attachWith (\taskMap toggleVal -> Map.map (const toggleVal) taskMap) (current tasks)
 
-header title =
-  elAttr "header" ("class" =: "header") $ do
-    el "h1" $ text title
-    renderNewTaskForm
-
 app = do
+  todoApp
+  infoFooter
+
+todoApp =
   elAttr "section" ("class" =: "todoapp") $ do
     rec newTaskEvent   <- header "todos"
-        filterChange   <- renderFilters [All, Active, Completed]
         toggleAll      <- renderToggleAllButton
-        clearCompleted <- renderClearCompletedButton
         userEvents     <- renderApp filteredTasks
-
         newTaskIds     <- mapDyn (+6) =<< count newTaskEvent
         tasks          <- foldDyn updateWithMap
                                   initialTasks
@@ -77,17 +79,14 @@ app = do
                                             , prepareBatchOp tasks clearCompleted
                                             ]
 
-        activeFilterDyn    <- holdDyn All filterChange
-        filteredTasks      <- combineDyn (Map.filter . satisfiesFilter) activeFilterDyn tasks
+        (activeFilter, clearCompleted) <- footer [All, Active, Completed] tasks
+        filteredTasks                  <- combineDyn (Map.filter . satisfiesFilter) activeFilter tasks
 
     return ()
 
-  infoFooter "Alex Watt"
-
-
 renderClearCompletedButton :: MonadWidget t m => m (Event t (UserEvent Task))
 renderClearCompletedButton = do
-  clearCompletedButton <- button "Clear Completed"
+  clearCompletedButton <- buttonAttr ("class" =: "clear-completed") $ text "Clear completed"
   return $ fmap (const $ Batch (view taskCompleted) Delete) clearCompletedButton
 
 renderToggleAllButton :: MonadWidget t m => m (Event t (UserEvent Task))
@@ -122,18 +121,36 @@ renderNewTaskForm = do
 
 renderFilters :: MonadWidget t m => [Filter] -> m (Event t Filter)
 renderFilters filters =
-  el "ul" $ do
+  elAttr "ul" ("class" =: "filters") $ do
     filterEvents <- forM filters $ \filter -> do
-      filterClick <- button (show filter)
-      return $ fmap (const filter) filterClick
+      el "li" $ do
+        (filterLink, _) <- elAttr' "a" ("href" =: "#/") $ text (show filter)
+        return $ fmap (const filter) (domEvent Click filterLink)
 
     return $ leftmost filterEvents
 
-infoFooter authorName = elAttr "footer" ("class" =: "info") $ do
+infoFooter = elAttr "footer" ("class" =: "info") $ do
   el "p" $ text "Single-click to edit a todo"
   el "p" $ do
     text "Created by "
-    elAttr "a" ("href" =: "http://www.github.com/Ninju") $ text authorName
+    elAttr "a" ("href" =: "http://www.github.com/Ninju") $ text "Alex Watt"
   el "p" $ do
     text "Part of "
     elAttr "a" ("href" =: "http://www.todomvc.com") $ text "TodoMVC"
+
+header title =
+  elAttr "header" ("class" =: "header") $ do
+    el "h1" $ text title
+    renderNewTaskForm
+
+footer :: MonadWidget t m => [Filter] -> Dynamic t (Map Int Task) -> m (Dynamic t Filter, Event t (UserEvent Task))
+footer filters tasks =
+  elAttr "footer" ("class" =: "footer") $ do
+    elAttr "span" ("class" =: "todo-count") $ do
+      el "strong" $ text "0"
+      text " items left."
+
+    clearCompleted <- renderClearCompletedButton
+    activeFilter <- holdDyn All =<< renderFilters filters
+
+    return (activeFilter, clearCompleted)
