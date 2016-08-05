@@ -13,9 +13,9 @@ ghcjs_F1mWODwfCMO30MeG1SrT96:161108
 ghcjs_Kc7TQ2cEDg1F5e5cgY2Vuk:9821
 integer-gmp:             16326
 lens_3fKNq6Keq021LVjg8NkKIP:832
-main:                    122469
+main:                    122815
 mtl_JY14bYun6zF5fM4QvBys8Y:1091
-refle_AP5ThgsLIQzEcQVSTX7cu8:541712
+refle_AP5ThgsLIQzEcQVSTX7cu8:542143
 refle_EwcELJSNfXz458tkz6MgJ5:439506
 semig_8UA8kOIuR1S52YyY7oupFE:6263
 text_1ffW5NTi2SPHBcBuYSkgjk:29874
@@ -143,8 +143,8 @@ lens_3fKNq6Keq021LVjg8NkKIP
     Control.Lens.Setter:                458
 
 main
-    Helpers.EditInPlace:                21629
-    Main:                               100840
+    Helpers.EditInPlace:                21894
+    Main:                               100921
 
 mtl_JY14bYun6zF5fM4QvBys8Y
     Control.Monad.Reader.Class:         1091
@@ -152,7 +152,7 @@ mtl_JY14bYun6zF5fM4QvBys8Y
 refle_AP5ThgsLIQzEcQVSTX7cu8
     Reflex.Dom.Class:                   17567
     Reflex.Dom.Internal:                137415
-    Reflex.Dom.Widget.Basic:            347377
+    Reflex.Dom.Widget.Basic:            347808
     Reflex.Dom.Widget.Input:            39353
 
 refle_EwcELJSNfXz458tkz6MgJ5
@@ -187,5 +187,5 @@ trans_KzbnBSIEqPI2eU1Inn4mzm
 
 
 
-packed metadata: 405928
+packed metadata: 406415
 

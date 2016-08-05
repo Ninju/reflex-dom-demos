@@ -8,7 +8,7 @@ In a nutshell, it has been redesigned to match [TodoMVC](http://todomvc.com/).
 
 * [x] CSS included
 * [ ] Add number of items left count
-* [ ] Double click to edit task descriptions (instead of single-click)
+* [x] Double click to edit task descriptions (instead of single-click)
 * [ ] TodoApp section
   * [ ] Header
       * [x] HTML
@@ -28,4 +28,4 @@ In a nutshell, it has been redesigned to match [TodoMVC](http://todomvc.com/).
 * [ ] Info Footer
     * [x] HTML
     * [x] CSS
-    * [ ] Should say Double-click and not Single-click
+    * [x] Should say Double-click and not Single-click

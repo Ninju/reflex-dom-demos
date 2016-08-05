@@ -11,7 +11,7 @@ import           Data.Monoid ((<>))
 import           Reflex
 import           Reflex.Dom
 
-import           Helpers.EditInPlace (editInPlace)
+import           Helpers.EditInPlace (editInPlaceWith)
 
 data Task = Task { _taskDescription :: String
                  , _taskCompleted :: Bool
@@ -99,7 +99,7 @@ renderApp dynTasks = do
   el "ul" $ do
     listViewWithKey dynTasks $ \k task -> do
       el "li" $ do
-        taskDescChange <- editInPlace =<< mapDyn (view taskDescription) task
+        taskDescChange <- editInPlaceWith Dblclick =<< mapDyn (view taskDescription) task
         checkboxChange <- checkboxView (constDyn mempty) =<< mapDyn (view taskCompleted) task
         deleteEvent <- button "Delete"
 
@@ -130,7 +130,7 @@ renderFilters filters =
     return $ leftmost filterEvents
 
 infoFooter = elAttr "footer" ("class" =: "info") $ do
-  el "p" $ text "Single-click to edit a todo"
+  el "p" $ text "Double-click to edit a todo"
   el "p" $ do
     text "Created by "
     elAttr "a" ("href" =: "http://www.github.com/Ninju") $ text "Alex Watt"

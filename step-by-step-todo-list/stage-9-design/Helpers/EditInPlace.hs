@@ -1,5 +1,5 @@
 {-# LANGUAGE RecursiveDo #-}
-module Helpers.EditInPlace (editInPlace) where
+module Helpers.EditInPlace (editInPlace, editInPlaceWith) where
 import           Control.Monad.IO.Class
 import           Data.Map (Map)
 import qualified Data.Map as Map
@@ -8,10 +8,13 @@ import           Reflex
 import           Reflex.Dom
 
 editInPlace :: MonadWidget t m => Dynamic t String -> m (Event t String)
-editInPlace someDynText = do
+editInPlace = editInPlaceWith Click
+
+editInPlaceWith :: MonadWidget t m => EventName en -> Dynamic t String -> m (Event t String)
+editInPlaceWith clickType someDynText = do
   initialText <- sample (current someDynText)
 
-  rec let textClicked     = fmap (const True) $ domEvent Click textElement
+  rec let textClicked     = fmap (const True) $ domEvent clickType textElement
       let nameBlurred     = updated $ _textInput_hasFocus textInputT
       let enterKeyPressed = fmap (const False) $ ffilter (== keycodeEnter) (_textInput_keypress textInputT)
 
@@ -37,6 +40,7 @@ editInPlace someDynText = do
   -- return the current value of the text input only when editing is finished
   -- because if validations fail, then we want roll-back to our previous valid value
   return $ tag (current $ _textInput_value textInputT) (ffilter (== False) inEditingState)
+
 
 dynStyleAttr :: (Reflex t, MonadHold t m) => String -> String -> (String, String) -> Event t Bool -> m (Dynamic t (Map String String))
 dynStyleAttr attrName initial (truthy, falsey) when = do
