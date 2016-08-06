@@ -147,8 +147,12 @@ footer :: MonadWidget t m => [Filter] -> Dynamic t (Map Int Task) -> m (Dynamic 
 footer filters tasks =
   elAttr "footer" ("class" =: "footer") $ do
     elAttr "span" ("class" =: "todo-count") $ do
-      el "strong" $ text "0"
-      text " items left."
+      el "strong" $ do
+        numberOfItemsLeft <- mapDyn (Map.size . Map.filter (not . view taskCompleted)) tasks
+        display numberOfItemsLeft
+        pluralizationOfItemsText <- mapDyn (\n -> " " ++ if n == 1 then "item" else "items") numberOfItemsLeft
+        dynText pluralizationOfItemsText
+        text " left."
 
     clearCompleted <- renderClearCompletedButton
     activeFilter <- holdDyn All =<< renderFilters filters

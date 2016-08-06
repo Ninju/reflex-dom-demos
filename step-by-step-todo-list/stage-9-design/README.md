@@ -7,7 +7,7 @@ In a nutshell, it has been redesigned to match [TodoMVC](http://todomvc.com/).
 ### In Progress
 
 * [x] CSS included
-* [ ] Add number of items left count
+* [x] Add number of items left count
 * [x] Double click to edit task descriptions (instead of single-click)
 * [ ] TodoApp section
   * [ ] Header
@@ -21,7 +21,7 @@ In a nutshell, it has been redesigned to match [TodoMVC](http://todomvc.com/).
     * [*] Display filters
     * [*] Display clear completed button
     * [*] Display number of items left
-    * [ ] Number of items left changes dynamically
+    * [*] Number of items left changes dynamically
     * [ ] Actively applied filter has a 'selected' class
     * [ ] Hide clear completed button when no tasks are completed
     * [ ] Fix janky clear completed button

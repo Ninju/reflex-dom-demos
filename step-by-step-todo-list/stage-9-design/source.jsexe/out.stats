@@ -4,18 +4,18 @@ code size summary per package:
 F3lLww8csW6En7phubNVtA:  2693
 base:                    370176
 bytes_7xzRCqmYKEUD9kT8JNNjd6:1869
-conta_5w3UY4chXx62LVUOUrXeRm:219306
+conta_5w3UY4chXx62LVUOUrXeRm:219627
 depen_17GTDr7yCOi4N8BNhd6XOO:47117
 excep_HfX47qAol2O2LctGygtuuo:4620
 ghc-prim:                29277
 ghcjs_B7KLFJ07Vte3zPHAgRIBTb:11013
-ghcjs_F1mWODwfCMO30MeG1SrT96:161108
+ghcjs_F1mWODwfCMO30MeG1SrT96:161135
 ghcjs_Kc7TQ2cEDg1F5e5cgY2Vuk:9821
 integer-gmp:             16326
 lens_3fKNq6Keq021LVjg8NkKIP:832
-main:                    122815
+main:                    125636
 mtl_JY14bYun6zF5fM4QvBys8Y:1091
-refle_AP5ThgsLIQzEcQVSTX7cu8:542143
+refle_AP5ThgsLIQzEcQVSTX7cu8:543658
 refle_EwcELJSNfXz458tkz6MgJ5:439506
 semig_8UA8kOIuR1S52YyY7oupFE:6263
 text_1ffW5NTi2SPHBcBuYSkgjk:29874
@@ -96,7 +96,7 @@ bytes_7xzRCqmYKEUD9kT8JNNjd6
 
 conta_5w3UY4chXx62LVUOUrXeRm
     Data.IntMap.Base:                   11332
-    Data.Map.Base:                      143123
+    Data.Map.Base:                      143444
     Data.Map.Strict:                    11915
     Data.Set.Base:                      52936
 
@@ -127,7 +127,7 @@ ghcjs_F1mWODwfCMO30MeG1SrT96
     GHCJS.DOM.JSFFI.Generated.NamedNodeMap:934
     GHCJS.DOM.JSFFI.Generated.Node:     6689
     GHCJS.DOM.JSFFI.Generated.Window:   1486
-    GHCJS.DOM.Types:                    105874
+    GHCJS.DOM.Types:                    105901
 
 ghcjs_Kc7TQ2cEDg1F5e5cgY2Vuk
     GHCJS.Marshal:                      7262
@@ -144,7 +144,7 @@ lens_3fKNq6Keq021LVjg8NkKIP
 
 main
     Helpers.EditInPlace:                21894
-    Main:                               100921
+    Main:                               103742
 
 mtl_JY14bYun6zF5fM4QvBys8Y
     Control.Monad.Reader.Class:         1091
@@ -152,7 +152,7 @@ mtl_JY14bYun6zF5fM4QvBys8Y
 refle_AP5ThgsLIQzEcQVSTX7cu8
     Reflex.Dom.Class:                   17567
     Reflex.Dom.Internal:                137415
-    Reflex.Dom.Widget.Basic:            347808
+    Reflex.Dom.Widget.Basic:            349323
     Reflex.Dom.Widget.Input:            39353
 
 refle_EwcELJSNfXz458tkz6MgJ5
@@ -187,5 +187,5 @@ trans_KzbnBSIEqPI2eU1Inn4mzm
 
 
 
-packed metadata: 406415
+packed metadata: 407592
 
