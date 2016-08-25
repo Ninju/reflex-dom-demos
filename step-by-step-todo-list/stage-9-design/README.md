@@ -25,7 +25,7 @@ In a nutshell, it has been redesigned to match [TodoMVC](http://todomvc.com/).
     * [ ] Actively applied filter has a 'selected' class
     * [ ] Hide clear completed button when no tasks are completed
     * [ ] Fix janky clear completed button
-* [ ] Info Footer
+* [x] Info Footer
     * [x] HTML
     * [x] CSS
     * [x] Should say Double-click and not Single-click
