@@ -1,5 +1,5 @@
 {-# LANGUAGE RecursiveDo #-}
-module Helpers.EditInPlace (editInPlace, editInPlaceWith) where
+module Helpers.EditInPlace (editInPlace, editInPlace', editInPlaceWith) where
 import           Control.Monad.IO.Class
 import           Data.Map (Map)
 import qualified Data.Map as Map
@@ -9,6 +9,37 @@ import           Reflex.Dom
 
 editInPlace :: MonadWidget t m => Dynamic t String -> m (Event t String)
 editInPlace = editInPlaceWith Click
+
+--editInPlace' :: MonadWidget t m => EventName en -> (String -> m ()) -> Dynamic t String -> m (Event t String)
+editInPlace' clickType renderText someDynText = do
+  initialText <- sample (current someDynText)
+
+  rec let textClicked     = fmap (const True) $ domEvent clickType textElement
+      let nameBlurred     = updated $ _textInput_hasFocus textInputT
+      let enterKeyPressed = fmap (const False) $ ffilter (== keycodeEnter) (_textInput_keypress textInputT)
+
+      let inEditingState = leftmost [enterKeyPressed, nameBlurred, textClicked]
+
+      let defaultInputAttrs = Map.fromList [("id", "text-input")]
+
+      textInputTStyle <- dynStyleAttr "display" "none"   ("inline", "none") inEditingState
+      textAttrs       <- dynStyleAttr "display" "inline" ("inline", "none") $ fmap not inEditingState
+      textInputTAttrs <- combineAttrs defaultInputAttrs textInputTStyle
+
+      performEvent_ $ fmap (const $ liftIO $ Input.select $ _textInput_element textInputT) inEditingState
+
+      -- text input should display exactly what is inside 'someDynText' except when editing
+      textInputT <- textInput $ def & attributes .~ textInputTAttrs
+                                    & textInputConfig_initialValue .~ initialText
+                                    & textInputConfig_setValue .~ updated someDynText
+
+      (textElement, _) <- renderText someDynText
+
+  -- return the current value of the text input only when editing is finished
+  -- because if validations fail, then we want roll-back to our previous valid value
+  return $ tag (current $ _textInput_value textInputT) (ffilter (== False) inEditingState)
+
+
 
 editInPlaceWith :: MonadWidget t m => EventName en -> Dynamic t String -> m (Event t String)
 editInPlaceWith clickType someDynText = do

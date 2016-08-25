@@ -11,7 +11,7 @@ import           Data.Monoid ((<>))
 import           Reflex
 import           Reflex.Dom
 
-import           Helpers.EditInPlace (editInPlaceWith)
+import           Helpers.EditInPlace (editInPlaceWith, editInPlace')
 
 data Task = Task { _taskDescription :: String
                  , _taskCompleted :: Bool
@@ -102,15 +102,16 @@ renderApp dynTasks = do
   elAttr "ul" ("class" =: "todo-list") $ do
     listViewWithKey dynTasks $ \k task -> do
       el "li" $ do
-        taskDescChange <- editInPlaceWith Dblclick =<< mapDyn (view taskDescription) task
-        checkboxChange <- checkboxView (constDyn mempty) =<< mapDyn (view taskCompleted) task
-        deleteEvent <- button "Delete"
+        elAttr "div" ("class" =: "view") $ do
+          taskDescChange <- editInPlace' Dblclick (\t -> el' "label" $ dynText t) =<< mapDyn (view taskDescription) task
+          checkboxChange <- checkboxView (constDyn ("class" =: "toggle")) =<< mapDyn (view taskCompleted) task
+          deleteEvent <- buttonAttr ("class" =: "destroy") $ text ""
 
-        let deleteEvents                = fmap (const Delete) deleteEvent
-        let toggleCompletedEvents       = fmap (Edit . set taskCompleted) checkboxChange
-        let changeTaskDescriptionEvents = fmap (Edit . set taskDescription) taskDescChange
+          let deleteEvents                = fmap (const Delete) deleteEvent
+          let toggleCompletedEvents       = fmap (Edit . set taskCompleted) checkboxChange
+          let changeTaskDescriptionEvents = fmap (Edit . set taskDescription) taskDescChange
 
-        return $ leftmost [deleteEvents, toggleCompletedEvents, changeTaskDescriptionEvents]
+          return $ leftmost [deleteEvents, toggleCompletedEvents, changeTaskDescriptionEvents]
 
 renderNewTaskForm = do
   rec let newValueEntered = textInputGetEnter newTaskInput
