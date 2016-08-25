@@ -9,11 +9,11 @@ depen_17GTDr7yCOi4N8BNhd6XOO:47117
 excep_HfX47qAol2O2LctGygtuuo:4620
 ghc-prim:                29277
 ghcjs_B7KLFJ07Vte3zPHAgRIBTb:11013
-ghcjs_F1mWODwfCMO30MeG1SrT96:161135
+ghcjs_F1mWODwfCMO30MeG1SrT96:161157
 ghcjs_Kc7TQ2cEDg1F5e5cgY2Vuk:9821
 integer-gmp:             16326
 lens_3fKNq6Keq021LVjg8NkKIP:832
-main:                    125636
+main:                    127205
 mtl_JY14bYun6zF5fM4QvBys8Y:1091
 refle_AP5ThgsLIQzEcQVSTX7cu8:543658
 refle_EwcELJSNfXz458tkz6MgJ5:439506
@@ -127,7 +127,7 @@ ghcjs_F1mWODwfCMO30MeG1SrT96
     GHCJS.DOM.JSFFI.Generated.NamedNodeMap:934
     GHCJS.DOM.JSFFI.Generated.Node:     6689
     GHCJS.DOM.JSFFI.Generated.Window:   1486
-    GHCJS.DOM.Types:                    105901
+    GHCJS.DOM.Types:                    105923
 
 ghcjs_Kc7TQ2cEDg1F5e5cgY2Vuk
     GHCJS.Marshal:                      7262
@@ -144,7 +144,7 @@ lens_3fKNq6Keq021LVjg8NkKIP
 
 main
     Helpers.EditInPlace:                21894
-    Main:                               103742
+    Main:                               105311
 
 mtl_JY14bYun6zF5fM4QvBys8Y
     Control.Monad.Reader.Class:         1091
@@ -187,5 +187,5 @@ trans_KzbnBSIEqPI2eU1Inn4mzm
 
 
 
-packed metadata: 407592
+packed metadata: 407833
 

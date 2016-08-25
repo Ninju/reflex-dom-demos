@@ -67,18 +67,21 @@ app = do
 
 todoApp =
   elAttr "section" ("class" =: "todoapp") $ do
-    rec newTaskEvent   <- header "todos"
-        toggleAll      <- renderToggleAllButton
-        userEvents     <- renderApp filteredTasks
-        newTaskIds     <- mapDyn (+6) =<< count newTaskEvent
-        tasks          <- foldDyn updateWithMap
-                                  initialTasks
-                                  $ mconcat [ userEvents
-                                            , attachDynWith Map.singleton newTaskIds newTaskEvent
-                                            , prepareBatchOp tasks toggleAll
-                                            , prepareBatchOp tasks clearCompleted
-                                            ]
+    rec tasks          <- foldDyn updateWithMap
+                                initialTasks
+                                $ mconcat [ userEvents
+                                          , attachDynWith Map.singleton newTaskIds newTaskEvent
+                                          , prepareBatchOp tasks toggleAll
+                                          , prepareBatchOp tasks clearCompleted
+                                          ]
 
+        newTaskEvent   <- header "todos"
+        (toggleAll, userEvents, newTaskIds) <- elAttr "section" ("class" =: "main") $ do
+                                                   toggleAll'      <- renderToggleAllButton
+                                                   userEvents'     <- renderApp filteredTasks
+                                                   newTaskIds'     <- mapDyn (+6) =<< count newTaskEvent
+                                                   return (toggleAll', userEvents', newTaskIds')
+ 
         (activeFilter, clearCompleted) <- footer [All, Active, Completed] tasks
         filteredTasks                  <- combineDyn (Map.filter . satisfiesFilter) activeFilter tasks
 
