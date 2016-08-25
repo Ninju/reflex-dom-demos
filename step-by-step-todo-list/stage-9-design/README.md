@@ -15,6 +15,8 @@ In a nutshell, it has been redesigned to match [TodoMVC](http://todomvc.com/).
       * [x] CSS
       * [ ] Autofocus on task entry
   * [ ] Main
+    * [ ] CSS
+    * [ ] HTML
   * [ ] Footer
     * [*] HTML
     * [*] CSS

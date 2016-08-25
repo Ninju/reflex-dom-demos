@@ -99,7 +99,7 @@ renderToggleAllButton = do
 
 renderApp :: (Ord k, MonadWidget t m) => Dynamic t (Map.Map k Task) -> m (Event t (Map.Map k (UserEvent Task)))
 renderApp dynTasks = do
-  el "ul" $ do
+  elAttr "ul" ("class" =: "todo-list") $ do
     listViewWithKey dynTasks $ \k task -> do
       el "li" $ do
         taskDescChange <- editInPlaceWith Dblclick =<< mapDyn (view taskDescription) task
